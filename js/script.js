@@ -11,38 +11,38 @@ function Calcular(){
     const n2 = parseFloat(txtN2.value)
     const operador = txtOperador.value; 
 
-    
     if (isNaN(n1) || isNaN(n2)) {
         pResultado.innerText = "Resultado no válido";
         pResultado.style.color = "red";
         return;
     }
 
-    if ( (operador == "+" || operador == "-" || operador == "*" || operador == "/" ) ) {
+    if (operador == "+" || operador == "-" || operador == "*" || operador == "/") {
         let resultado;
         switch (operador) {
             case "+":
              resultado =   n1 + n2
                 break;
             case "-":
-             resultado =   n1 - n2
+                resultado = n1 - n2;
                 break;
             case "*":
-             resultado =   n1 * n2
+                resultado = n1 * n2;
                 break;
             case "/":
-             resultado =   n1 / n2
+                if (n2 === 0) {
+                    pResultado.innerText = "Error: No se puede dividir entre 0";
+                    pResultado.style.color = "red";
+                    return;
+                }
+                resultado = n1 / n2;
                 break;
         }
-        pResultado.innerText = "=" + resultado
+        pResultado.innerText = "=" + resultado;
         pResultado.style.color = "blue";
     } else {
-        pResultado.innerText = "Resultado imposible"
-        pResultado.style.color = "red"
-
-
+        pResultado.innerText = "Resultado imposible";
+        pResultado.style.color = "red";
     }
-
-
 }
 
